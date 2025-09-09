@@ -2,94 +2,132 @@ import Image from "next/image";
 import styles from "./page.module.css";
 
 export default function Home() {
+
+  let languages = ['HTML', "CSS", 'JavaScript', 'Python', 'C', 'C++', 'Java', 'SQL', 'R']
+  let frameworks = ['Next', 'Express', 'React', 'Flask', 'Numpy', 'Pandas', 'Plotly', 'Matplotlib', 'Scipy', 'Tailwind', 'Pytorch', 'TypeScript']
+  let tools = ['Revit', 'Fusion', 'Calculus', 'Linear Algebra', 'Differential Equations', 'Git', 'Figma', 'Bash', 'LaTeX', 'Probability', 'Time Series Analysis']
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+      <div className={styles.mainContainer}>
+        <div className={styles.mainLeft}>
+          <div className={styles.hiContainer}>
+              <Image src={`/pfp.jpeg`} alt="Me" className={styles.hiImage} width={100} height={100}></Image>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+              <h1 className={styles.hiHeader}>Hi! 👋</h1>            
+
+          </div>
+          <div className={styles.briefDescription}>
+            <h1 className={styles.name}>I'm <span>Aayush Mitra!</span></h1>
+            <div className={styles.role}><p><Image src={'/Princeton_seal.svg'} alt={'Princeton!'} height={18} width={18}></Image> Freshman @ Princeton University</p> </div>
+            <p className={styles.locationBox}>
+              🌎 From Edinburg, Texas
+            </p>
+            <p className={styles.shortDescription}>
+              My studies are concentrated on <span>Mathematics & Computer Science</span>. I have many years of experience
+              in full-stack web development, and I have done some work in Data Science, Machine Learning,
+              and PDE Modeling.
+            </p>
+            <div className={styles.socials}>
+              <div className={styles.social}>
+                <a className={styles.resumeLink} target='_blank' href="/Aayush_Resume.pdf">Resume</a>
+              </div>
+              <div className={styles.social}>
+                <a target="_blank" href="https://www.linkedin.com/in/aayushmitra121">
+                  <Image src={'/icons8-linkedin.svg'} alt="Linkedin" height={30} width={30}></Image>
+                </a>
+              </div>
+
+              <div className={styles.social}>
+                <a target="_blank" href="https://github.com/aayush-mitra">
+                  <Image src={'/icons8-github.svg'} alt="Github" height={30} width={30}></Image>
+                </a>
+
+              </div>
+
+              <div className={styles.social}>
+                <a target="_blank" href="mailto:aayush.mitra121@gmail.com">
+                  <Image src={'/icons8-email-50.png'} alt="Email" height={30} width={30}></Image>
+                </a>
+
+              </div>
+
+              <div className={styles.social}>
+                <a target="_blank" href="tel:19569002051">
+                  <Image src={'/icons8-phone-50.png'} alt="Phone" height={30} width={30}></Image>
+                </a>
+
+              </div>
+            </div>
+
+            <div className={styles.skills}>
+
+              <h1>Skills</h1>
+              <div className={styles.skill}>
+                <h2>Languages</h2>
+                <div className={styles.carousel}>
+                  <div className={styles.track}>
+                    {/* first copy */}
+                    {languages.map((skill, idx) => (
+                      <div key={`first-${idx}`} className={styles.item1}>
+                        {skill}
+                      </div>
+                    ))}
+                    {/* second copy (so as first scrolls off, next starts) */}
+                    {languages.map((skill, idx) => (
+                      <div key={`second-${idx}`} className={styles.item1}>
+                        {skill}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.skill}>
+                <h2>Libraries/Frameworks</h2>
+                <div className={styles.carousel}>
+                  <div className={styles.track}>
+                    {/* first copy */}
+                    {frameworks.map((skill, idx) => (
+                      <div key={`first-${idx}`} className={styles.item2}>
+                        {skill}
+                      </div>
+                    ))}
+                    {/* second copy (so as first scrolls off, next starts) */}
+                    {frameworks.map((skill, idx) => (
+                      <div key={`second-${idx}`} className={styles.item2}>
+                        {skill}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.skill}>
+                <h2>Tools/Other</h2>
+                <div className={styles.carousel}>
+                  <div className={styles.track}>
+                    {/* first copy */}
+                    {tools.map((skill, idx) => (
+                      <div key={`first-${idx}`} className={styles.item3}>
+                        {skill}
+                      </div>
+                    ))}
+                    {/* second copy (so as first scrolls off, next starts) */}
+                    {tools.map((skill, idx) => (
+                      <div key={`second-${idx}`} className={styles.item3}>
+                        {skill}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className={styles.mainRight}>
+
+        </div>
+      </div>
     </div>
   );
 }
