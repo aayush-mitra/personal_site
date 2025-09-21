@@ -1,0 +1,55 @@
+
+
+body {
+    background-color: white;
+    color: black;
+    font-family: --font-playfair;
+    display: flex;
+    justify-content: center;
+}
+
+.prince-wrapper {
+    max-width: 800px;
+    width: 100%;
+    padding: 40px 15px 10px 15px;
+}
+
+.prince-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+.prince-header h1 {
+    font-size: 3em;
+    font-weight: 800;
+
+}
+
+.prince-header h5 {
+    font-size: 0.9em;
+    
+}
+
+.prince-header .prince-date {
+    font-weight: 700;
+    color: black;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+
+.prince-body p {
+    margin-top: 10px;
+    font-size: 1.3em;
+    padding: 10px 0px 10px 0px;
+}
+
+.prince-body iframe {
+    margin: 10px 0px 10px 0px;
+}
+
+a {
+    color: rgb(201, 135, 20);
+    font-weight: bold;
+}

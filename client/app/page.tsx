@@ -3,9 +3,9 @@ import styles from "./page.module.css";
 
 export default function Home() {
 
-  let languages = ['HTML', "CSS", 'JavaScript', 'Python', 'C', 'C++', 'Java', 'SQL', 'R']
-  let frameworks = ['Next', 'Express', 'React', 'Flask', 'Numpy', 'Pandas', 'Plotly', 'Matplotlib', 'Scipy', 'Tailwind', 'Pytorch', 'TypeScript']
-  let tools = ['Revit', 'Fusion', 'Calculus', 'Linear Algebra', 'Differential Equations', 'Git', 'Figma', 'Bash', 'LaTeX', 'Probability', 'Time Series Analysis']
+  const languages = ['HTML', "CSS", 'JavaScript', 'Python', 'C', 'C++', 'Java', 'SQL', 'R']
+  const frameworks = ['Next', 'Express', 'React', 'Flask', 'Numpy', 'Pandas', 'Plotly', 'Matplotlib', 'Scipy', 'Tailwind', 'Pytorch', 'TypeScript']
+  const tools = ['Revit', 'Fusion', 'Calculus', 'Linear Algebra', 'Differential Equations', 'Git', 'Figma', 'Bash', 'LaTeX', 'Probability', 'Time Series Analysis']
   return (
     <div className={styles.page}>
       <div className={styles.mainContainer}>
@@ -17,7 +17,7 @@ export default function Home() {
 
           </div>
           <div className={styles.briefDescription}>
-            <h1 className={styles.name}>I'm <span>Aayush Mitra!</span></h1>
+            <h1 className={styles.name}>I&apos;m <span>Aayush Mitra!</span></h1>
             <div className={styles.role}><p><Image src={'/Princeton_seal.svg'} alt={'Princeton!'} height={18} width={18}></Image> Freshman @ Princeton University</p> </div>
             <p className={styles.locationBox}>
               🌎 From Edinburg, Texas
