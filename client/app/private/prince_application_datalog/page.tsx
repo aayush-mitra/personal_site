@@ -11,7 +11,7 @@ export default function prince_application_datalog() {
         </div>
         <div className="prince-body">
             <p>Despite Princeton having a great emphasis on the <a href='https://admission.princeton.edu/academics/what-does-liberal-arts-mean' target='_blank'>liberal arts</a> and humanities, Mathematics
-seems to play a significant role in the <a href="https://projects.dailyprincetonian.com/frosh-survey-2028/" target='_blank'>Class of 2028'</a>
+seems to play a significant role in the <a href="https://projects.dailyprincetonian.com/frosh-survey-2028/" target='_blank'>Class of 2028&apos;</a>
 s high school <a href="https://projects.dailyprincetonian.com/frosh-survey-2028/academics.html" target='_blank'>academic profiles</a>.</p>
             {/* Popular AP Tests */}
             <iframe title="Popular AP Tests" aria-label="Column Chart" id="datawrapper-chart-MPOFx" src="https://datawrapper.dwcdn.net/MPOFx/1/" scrolling={'no'} frameBorder={0} style={{width: '0px', border: 'none', minWidth: '100% !important', height: '593px'}}></iframe>
@@ -59,7 +59,7 @@ level and taking the <a href='https://advising.princeton.edu/degree-planning/gen
 freshman students have taken Calculus in high school, Princeton only reserves the
 recommendation of Calculus for prospective engineering students.
             </p>
-            <p>Data and graphs were used from The Daily Princetonian's <a href='https://projects.dailyprincetonian.com/frosh-survey-2028/' target='_blank'>Frosh Survey 2028</a>. Thank you for your consideration of me for the Prince.</p>
+            <p>Data and graphs were used from The Daily Princetonian&apos;s <a href='https://projects.dailyprincetonian.com/frosh-survey-2028/' target='_blank'>Frosh Survey 2028</a>. Thank you for your consideration of me for the Prince.</p>
             <div style={{height:'100px'}}></div>
         </div>
     </div>
