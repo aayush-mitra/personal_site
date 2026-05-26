@@ -22,10 +22,8 @@ export default function Home() {
     const remainingTerms = [...terms];
     const pieces = [];
     let rest = description;
-
     while (remainingTerms.length > 0) {
       const term = remainingTerms.shift();
-
       if (!term) {
         continue;
       }
@@ -43,10 +41,12 @@ export default function Home() {
       pieces.push(<span key={`${term}-${pieces.length}`}>{term}</span>);
       rest = rest.slice(index + term.length);
     }
-
     pieces.push(rest);
     return pieces;
   };
+
+
+
   const experiences = [
     {
       period: "Spring 2026",
@@ -54,7 +54,7 @@ export default function Home() {
       organization: "Princeton University DRP",
       role: "",
       description: "Studied theory behind Curve Shortening Flow, a geometric process described by a nonlinear parabolic PDE. Discussed questions of existence, uniqueness, monotonicity, and convergence of shape.",
-      highlights: ["Curve Shortening Flow", "nonlinear parabolic PDE", "convergence"],
+      highlights: ["Curve Shortening Flow"],
       links: [["https://www.math.utoronto.ca/roberth/pde2/curve_shortening_flow.pdf", "[Notes Used]"]],
       tags: ["Directed Reading", "Mathematical Analysis", "Parabolic Nonlinear PDE"],
     },
@@ -64,7 +64,7 @@ export default function Home() {
       organization: "Princeton University DRP",
       role: "",
       description: "Studied theory of nonlinear wave equations, including use of energy estimates and questions of local and global existence and regularity.",
-      highlights: ["nonlinear wave equations", "energy estimates", "regularity"],
+      highlights: ["nonlinear wave equations"],
       links: [["https://web.stanford.edu/~jluk/NWnotes.pdf", "[Notes Used]"]],
       tags: ["Directed Reading", "Mathematical Analysis", "Hyperbolic Nonlinear PDE"],
     },
@@ -76,7 +76,7 @@ export default function Home() {
       links: [["https://meetings.ams.org/math/fall2024c/meetingapp.cgi/Paper/37509", "[AMS Presentation]"]],
       description:
         "Developed PDE models to study the kinetics of the critical protein Amyloid Beta in Alzheimer's Disease. Implemented Finite Difference Methods and used Asymptotic Analysis to achieve numerical and analytical results. Presented work at the American Mathematical Society San Antonio Meeting.",
-      highlights: ["PDE models", "Amyloid Beta", "Asymptotic Analysis"],
+      highlights: ["PDE models", "Finite Difference Methods", "Asymptotic Analysis"],
       tags: ["Research", "Mathematical Modeling", "Python", "Numpy", "Scipy", "Asymptotics"],
     },
     {
@@ -87,7 +87,7 @@ export default function Home() {
       links: [],
       description:
         "Performed statistical and computational analyses on the Mental Health Client Level Dataset from SAMHSA. Used Python to aggregate and visualize data and implement models.",
-      highlights: ["statistical and computational analyses", "SAMHSA", "Python"],
+      highlights: ["statistical",  "computational analyses", "Python"],
       tags: ["Research", "Statistics", "Data Science", "Linear Algebra", "Python", "Numpy"],
     },
     {
@@ -98,24 +98,24 @@ export default function Home() {
       links: [],
       description:
         "Tutored students in grades K-12 across topics ranging from basic arithmetic to SAT/ACT Math preparation.",
-      highlights: ["grades K-12", "SAT/ACT Math"],
+      highlights: [],
       tags: ["Tutoring"],
     },
   ];
+  
 
   return (
     <div className={styles.page}>
       <ScrollReveal />
       <header className={styles.navShell}>
         <nav className={styles.nav}>
-          <a className={styles.brand} href="#about">AM.</a>
+          <a className={styles.brand} href="#about">AM</a>
           <div className={styles.navLinks}>
-            <a href="#about">About</a>
-            <a href="#focus">Focus</a>
-            <a href="#research">Research</a>
+            
+            <a href="#experiences">Experiences</a>
             <a href="#projects">Projects</a>
             <a href="#toolkit">Toolkit</a>
-            <a href="/private/prince_application_datalog">Blog ↗</a>
+            <a href="/private/prince_application_datalog">Blog</a>
           </div>
         </nav>
       </header>
@@ -150,21 +150,24 @@ export default function Home() {
             </blockquote>
 
             <div className={styles.socials}>
-              <a className={styles.resumeLink} target="_blank" rel="noreferrer" href="/Aayush_Resume.pdf">
+              {/* <a className={styles.resumeLink} target="_blank" rel="noreferrer" href="/Aayush_Resume.pdf">
                 Resume
-              </a>
-              <a className={styles.socialIcon} target="_blank" rel="noreferrer" href="https://github.com/aayush-mitra" aria-label="GitHub">
-                <Image src="/icons8-github.svg" alt="" height={25} width={25} />
+              </a> */}
+              <a className={styles.emailLink} href="mailto:aayush.mitra@princeton.edu" aria-label="Email">
+                <Image src="/icons8-email-50.png" alt="" height={25} width={25} />
+                <span>aayush.mitra@princeton.edu</span>
               </a>
               <a className={styles.socialIcon} target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/aayushmitra121" aria-label="LinkedIn">
                 <Image src="/icons8-linkedin.svg" alt="" height={25} width={25} />
               </a>
-              <a className={styles.socialIcon} href="mailto:aayush.mitra121@gmail.com" aria-label="Email">
-                <Image src="/icons8-email-50.png" alt="" height={25} width={25} />
+              <a className={styles.socialIcon} target="_blank" rel="noreferrer" href="https://github.com/aayush-mitra" aria-label="GitHub">
+                <Image src="/icons8-github.svg" alt="" height={25} width={25} />
               </a>
-              <a className={styles.socialIcon} href="tel:19569002051" aria-label="Phone">
+              
+              
+              {/* <a className={styles.socialIcon} href="tel:19569002051" aria-label="Phone">
                 <Image src="/icons8-phone-50.png" alt="" height={25} width={25} />
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -262,46 +265,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section className={`${styles.endeavors} ${styles.reveal}`} data-reveal>
-          <div className={styles.sectionIntro}>
-            <h2>Other Endeavors</h2>
-            <p>Additional academic programs, campus engineering, and writing.</p>
-          </div>
-
-          <div className={styles.endeavorGrid}>
-            <article className={styles.endeavorItem}>
-              <p className={styles.endeavorLabel}>Online Program</p>
-              <h3>MITx MicroMasters in Statistics and Data Science</h3>
-              <p>
-                Completed coursework in Probability, Data Analysis in Social Science, Machine
-                Learning with Python, and Time Series Analysis.
-              </p>
-              <div className={styles.endeavorTags}>
-                <span>Probability</span>
-                <span>Machine Learning</span>
-                <span>Time Series</span>
-              </div>
-            </article>
-
-            <article className={styles.endeavorItem}>
-              <p className={styles.endeavorLabel}>Campus Engineering</p>
-              <h3>First-year engineering work</h3>
-              <p>
-                Served as an engineer for <a href="#">Princeton&apos;s Hoagie Club</a> and{" "}
-                <a href="#">TigerApps</a>, contributing to student-facing technical systems.
-              </p>
-            </article>
-
-            <article className={styles.endeavorItem}>
-              <p className={styles.endeavorLabel}>Writing</p>
-              <h3>The Daily Princetonian</h3>
-              <p>
-                I write for <a href="https://www.dailyprincetonian.com/staff/aayush-mitra" target="_blank" rel="noreferrer">The Daily Princetonian</a>,
-                where my work focuses on data-driven campus reporting.
-              </p>
-            </article>
-          </div>
-        </section>
 
         <section className={`${styles.blogCta} ${styles.reveal}`} aria-label="Blog" data-reveal>
           <h2>See what I&apos;m up to</h2>
@@ -312,18 +275,21 @@ export default function Home() {
       <footer className={styles.footer}>
         <p>&copy; 2026 Aayush Mitra</p>
         <div className={styles.footerSocials}>
-          <a className={styles.socialIcon} target="_blank" rel="noreferrer" href="https://github.com/aayush-mitra" aria-label="GitHub">
-            <Image src="/icons8-github.svg" alt="" height={25} width={25} />
+          <a className={styles.emailLink} href="mailto:aayush.mitra@princeton.edu" aria-label="Email">
+            <Image src="/icons8-email-50.png" alt="" height={25} width={25} />
+            <span>aayush.mitra@princeton.edu</span>
           </a>
           <a className={styles.socialIcon} target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/aayushmitra121" aria-label="LinkedIn">
             <Image src="/icons8-linkedin.svg" alt="" height={25} width={25} />
           </a>
-          <a className={styles.socialIcon} href="mailto:aayush.mitra121@gmail.com" aria-label="Email">
-            <Image src="/icons8-email-50.png" alt="" height={25} width={25} />
+          <a className={styles.socialIcon} target="_blank" rel="noreferrer" href="https://github.com/aayush-mitra" aria-label="GitHub">
+            <Image src="/icons8-github.svg" alt="" height={25} width={25} />
           </a>
-          <a className={styles.socialIcon} href="tel:19569002051" aria-label="Phone">
+          
+          
+          {/* <a className={styles.socialIcon} href="tel:19569002051" aria-label="Phone">
             <Image src="/icons8-phone-50.png" alt="" height={25} width={25} />
-          </a>
+          </a> */}
         </div>
       </footer>
     </div>
