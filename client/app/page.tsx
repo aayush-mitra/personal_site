@@ -5,6 +5,11 @@ import ProjectsSection from "./ProjectsSection";
 import ScrollReveal from "./ScrollReveal";
 import styles from "./page.module.css";
 
+export const metadata = {
+  title: "Aayush Mitra",
+  description: "Undergrad at Princeton University studying Mathematics and Computer Science. Interested in PDE theory, Machine Learning, and Systems."
+}
+
 export default function Home() {
   const languages = ["Python", "Java", "C", "C++", "HTML", "CSS", "JavaScript", "TypeScript", "SQL", "R"];
   const frameworks = ["Numpy", "Pandas", "Plotly", "Matplotlib", "Scipy", "PyTorch", "Flask", "Next", "Express", "React", "Tailwind"];
