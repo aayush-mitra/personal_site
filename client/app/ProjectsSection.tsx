@@ -3,48 +3,115 @@
 import { useState } from "react";
 import styles from "./page.module.css";
 
-const filters = ["All", "Scientific", "Systems", "Full-Stack"];
+const filters = ["All", "Data Science/ML", "Math", "Web"];
 
 const projects = [
   {
-    title: "Linear Algebra Simulation Engine",
-    category: "Scientific",
+    title: "EcoSnap",
+    date: "October 2025",
+    category: "Web",
     description:
-      "A low-dependency, high-performance C++ implementation targeting optimized matrix operations, decomposition modules, and vector calculus pipelines.",
-    tags: ["C++", "Numerical Methods", "Linear Algebra"],
+      "Mobile-oriented full-stack app that functions as an AI-powered recycling assistant using Gemini Vision. Gamifies the recycling process and allows for more informed recycling. Submitted as part of HackPrinceton Fall 2025. ",
+    tags: ["Next", "Express", "Tailwind", "Gemini Vision", "MongoDB"],
+    link: "https://devpost.com/software/ecosnap-3k1rym"
   },
   {
-    title: "Custom Assembly Compiler Pipeline",
-    category: "Systems",
+    title: "Reaction Estimation through Computational Training (REACT)",
+    date: "March 2025",
+    category: "Data Science/ML",
     description:
-      "Built for Unix-like environments. Implements lexing, lexical parsing tree evaluation, memory optimizations, and execution profiles.",
-    tags: ["Assembly", "Systems", "COS 217"],
+      "Built a Physics-Informed Neural Network that predicts kinetics for enzyme-catalyzed reactions given subtrate names.",
+    tags: ["Python", "PyTorch", "Numpy"],
+    link: "disabled"
   },
   {
-    title: "Methane Monitor Infrastructure",
-    category: "Full-Stack",
+    title: "DreamHaven",
+    date: "January 2025",
+    category: "Web",
     description:
-      "Geospatial environment dashboard ingesting telemetry endpoints. Relies on structured real-time tracking pipelines and geometric rendering layers.",
-    tags: ["Python", "React", "Geospatial"],
+      "Full-Stack web app that functions as a \"journal\" for dreams. Leverges Gemini API to analyze and interpret dreams. Won Congressional App Challenge in TX-34.",
+    tags: ["Next", "Python", "Flask", "Gemini API", "MongoDB"],
+    link: "https://www.congressionalappchallenge.us/24-tx34/"
   },
   {
-    title: "Sparse Autoencoder Architecture",
-    category: "ML Theory",
+    title: "The Carbon Cache",
+    date: "November 2024",
+    category: "Math",
     description:
-      "Exploratory models mapping dictionary learning and feature extraction paradigms over complex computational hidden layer fields.",
-    tags: ["PyTorch", "ML Theory", "Notebook"],
+      "Constructed a system of ODEs modeling the cumulative effects of high-powered computing over time on CO2 emissions. Submitted in High School International Competition for Modeling; Top team from Texas.",
+    tags: ["Python", "Scipy"],
+    link: "disabled"
   },
+  
+  {
+    title: "Analysis of the Impact of Socioeconomic Variables on Education",
+    date: "April 2023",
+    category: "Data Science/ML",
+    description:
+      "Analyzed open-source data from the US Dept. of Education. Employed a variety of methods including regression, clustering, cosine similarity, and principal component analysis. Won 1st place in Texas and 3rd place nationally in TSA Data Science competition. ",
+    tags: ["Python", "Pandas", "Numpy", "Plotly"],
+    link: "/Analyzing-the-Impact-of-Socioeconomic-Variables-on-Education-Data-Science.pdf"
+  },
+  {
+    title: "DivineByDesign",
+    date: "January 2023",
+    category: "Web",
+    description:
+      "Front-end website for hypothetical global event-planning company. Won 1st place in Texas for Business Professionals of America Global Marketing competition.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    link: "https://divinebydesignbpa.com/"
+  }
 ];
 
 export default function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState("All");
+  const [showAll, setShowAll] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const filteredProjects =
+    activeFilter === "All"
+      ? projects
+      : projects.filter((project) => project.category === activeFilter);
+  const visibleProjects = showAll ? filteredProjects : filteredProjects.slice(0, 4);
+  const canToggle = filteredProjects.length > 4;
+
+  const transitionProjects = (updateProjects: () => void) => {
+    setIsTransitioning(true);
+
+    window.setTimeout(() => {
+      updateProjects();
+      window.setTimeout(() => setIsTransitioning(false), 40);
+    }, 180);
+  };
+
+  const handleFilterChange = (filter: string) => {
+    if (filter === activeFilter || isTransitioning) {
+      return;
+    }
+
+    transitionProjects(() => {
+      setActiveFilter(filter);
+      setShowAll(false);
+    });
+  };
+
+  const handleToggleProjects = () => {
+    if (isTransitioning) {
+      return;
+    }
+
+    transitionProjects(() => setShowAll((current) => !current));
+  };
 
   return (
     <section id="projects" className={`${styles.projects} ${styles.reveal}`} data-reveal>
       <div className={styles.projectsHeader}>
         <div className={styles.sectionIntro}>
           <h2>Projects</h2>
-          <p>Production systems, low-level tooling, and scientific software.</p>
+          {canToggle ? (
+        <button className={styles.projectsToggle} type="button" onClick={handleToggleProjects}>
+          {showAll ? "View Less" : "View More"} 
+        </button>
+      ) : null}
         </div>
 
         <div className={styles.projectFilters} aria-label="Project categories">
@@ -54,7 +121,7 @@ export default function ProjectsSection() {
               className={activeFilter === filter ? styles.activeFilter : undefined}
               type="button"
               aria-pressed={activeFilter === filter}
-              onClick={() => setActiveFilter(filter)}
+              onClick={() => handleFilterChange(filter)}
             >
               {filter}
             </button>
@@ -62,12 +129,12 @@ export default function ProjectsSection() {
         </div>
       </div>
 
-      <div className={styles.projectGrid}>
-        {projects.map((project) => (
+      <div className={`${styles.projectGrid} ${isTransitioning ? styles.projectGridFading : ""}`}>
+        {visibleProjects.map((project) => (
           <article key={project.title} className={styles.projectCard}>
             <div className={styles.projectTitleRow}>
               <h3>{project.title}</h3>
-              <p>{project.category}</p>
+              <p>{project.date}</p>
             </div>
 
             <p className={styles.projectDescription}>{project.description}</p>
@@ -79,13 +146,18 @@ export default function ProjectsSection() {
                 ))}
               </div>
 
-              <button className={styles.projectLink} type="button">
-                View More <span aria-hidden="true">→</span>
-              </button>
+              {project.link !== "disabled" ? (
+                <a className={styles.projectLink} href={project.link} target="_blank" rel="noreferrer">
+                  View <span aria-hidden="true">→</span>
+                </a>
+              ) : null}
+              
             </div>
           </article>
         ))}
       </div>
+
+      
     </section>
   );
 }

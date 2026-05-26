@@ -527,6 +527,16 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.projectGridFading {
+  opacity: 0;
+  transform: translateY(8px);
 }
 
 .projectCard {
@@ -615,6 +625,26 @@
 
 .projectLink:hover {
   color: #f3f3f3;
+}
+
+.projectsToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  /* margin-top: 28px; */
+  padding: 0;
+  border: 0;
+  color: var(--accent);
+  background: transparent;
+  font-family: var(--font-geist-mono);
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+
+.projectsToggle:hover,
+.projectsToggle:focus-visible {
+  color: #f3d7ff;
 }
 
 .skills {

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Fragment } from 'react'
 import ProjectsSection from "./ProjectsSection";
 import ScrollReveal from "./ScrollReveal";
@@ -108,7 +109,7 @@ export default function Home() {
     },
     {
       period: "June 2024 - June 2025",
-      title: "K-12 Mathematics Instructor",
+      title: "Mathematics Instructor",
       organization: "Mathnasium Sharyland",
       role: "Instructor",
       links: [],
@@ -125,13 +126,13 @@ export default function Home() {
       <ScrollReveal />
       <header className={styles.navShell}>
         <nav className={styles.nav}>
-          <a className={styles.brand} href="/">AM</a>
+          <Link className={styles.brand} href="/">AM</Link>
           <div className={styles.navLinks}>
             
             <a href="#experiences">Experiences</a>
             <a href="#projects">Projects</a>
             <a href="#toolkit">Toolkit</a>
-            <a href="/private/prince_application_datalog">Blog</a>
+            <Link href="/private/prince_application_datalog">Blog</Link>
           </div>
         </nav>
       </header>
