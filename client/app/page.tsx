@@ -1,22 +1,38 @@
 import Image from "next/image";
+import { Fragment } from 'react'
 import ProjectsSection from "./ProjectsSection";
 import ScrollReveal from "./ScrollReveal";
 import styles from "./page.module.css";
 
 export default function Home() {
-  const languages = ["HTML", "CSS", "JavaScript", "Python", "C", "C++", "Java", "SQL", "R"];
-  const frameworks = ["Next", "Express", "React", "Flask", "Numpy", "Pandas", "Plotly", "Matplotlib", "Scipy", "Tailwind", "Pytorch", "TypeScript"];
-  const tools = ["Revit", "Fusion", "Calculus", "Linear Algebra", "Differential Equations", "Git", "Figma", "Bash", "LaTeX", "Probability", "Time Series Analysis"];
+  const languages = ["Python", "Java", "C", "C++", "HTML", "CSS", "JavaScript", "TypeScript", "SQL", "R"];
+  const frameworks = ["Numpy", "Pandas", "Plotly", "Matplotlib", "Scipy", "PyTorch", "Flask", "Next", "Express", "React", "Tailwind"];
+  const tools = ["Git", "Figma", "Bash", "LaTeX", "Revit", "Fusion"];
   const agendas = [
     "Steady Water Waves & Nonlinear Elliptic PDEs",
     "Database Systems & Architecture",
     "Neural ODEs & Scientific Machine Learning",
     "Probability Theory & Stochastic Processes"
   ];
-  const courses = [
-    ["Mathematics", "Real Analysis (MAT 215), Honors Linear Algebra (MAT 217), Fourier Analysis & PDEs (MAT 325)"],
-    ["Computer Science", "Systems Programming (COS 217)"],
-    ["Other", "Advanced Spanish (SPA 108)"],
+  const courseCategories = [
+    {
+      category: "Mathematics", 
+      courses: [
+        ["Real Analysis (MAT 215)", "https://registrar.princeton.edu/course-offerings/course-details?term=1262&courseid=004158"], 
+        ["Honors Linear Algebra (MAT 217)", "https://registrar.princeton.edu/course-offerings/course-details?term=1264&courseid=004159"], 
+        ["Fourier Analysis & PDEs (MAT 325)", "https://registrar.princeton.edu/course-offerings/course-details?term=1264&courseid=004193"]
+      ]
+    },
+    {
+      category: "Computer Science",
+      courses: [["Systems Programming (COS 217)", "https://registrar.princeton.edu/course-offerings/course-details?term=1262&courseid=002053"]]
+    },
+    {
+      category: "Other",
+      courses: [["Advanced Spanish (SPA 108)", "https://registrar.princeton.edu/course-offerings/course-details?term=1262&courseid=006665"]]
+    }
+    
+    
   ];
   const highlightDescription = (description: string, terms: string[]) => {
     const remainingTerms = [...terms];
@@ -63,8 +79,8 @@ export default function Home() {
       title: "Directed Reading Program in Nonlinear Wave Equations",
       organization: "Princeton University DRP",
       role: "",
-      description: "Studied theory of nonlinear wave equations, including use of energy estimates and questions of local and global existence and regularity.",
-      highlights: ["nonlinear wave equations"],
+      description: "Studied theory of Nonlinear Wave Equations, including use of energy estimates and questions of local and global existence and regularity.",
+      highlights: ["Nonlinear Wave Equations"],
       links: [["https://web.stanford.edu/~jluk/NWnotes.pdf", "[Notes Used]"]],
       tags: ["Directed Reading", "Mathematical Analysis", "Hyperbolic Nonlinear PDE"],
     },
@@ -102,14 +118,14 @@ export default function Home() {
       tags: ["Tutoring"],
     },
   ];
-  
+
 
   return (
     <div className={styles.page}>
       <ScrollReveal />
       <header className={styles.navShell}>
         <nav className={styles.nav}>
-          <a className={styles.brand} href="#about">AM</a>
+          <a className={styles.brand} href="/">AM</a>
           <div className={styles.navLinks}>
             
             <a href="#experiences">Experiences</a>
@@ -218,9 +234,11 @@ export default function Home() {
           <div id="research" className={styles.focusColumn}>
             <h2>Coursework</h2>
             <div className={styles.courseList}>
-              {courses.map(([label, detail]) => (
-                <p key={label}>
-                  <strong>{label}:</strong> {detail}
+              {courseCategories.map((c) => (
+                <p key={c.category}>
+                  <strong>{c.category}:</strong> {c.courses.map(c1 => {
+                    return (<Fragment key={c1[0]}><a key={c1[0]} href={c1[1]} target="_blank">{c1[0]} </a>, </Fragment>)
+                  })}
                 </p>
               ))}
             </div>
@@ -267,7 +285,7 @@ export default function Home() {
 
 
         <section className={`${styles.blogCta} ${styles.reveal}`} aria-label="Blog" data-reveal>
-          <h2>See what I&apos;m up to</h2>
+          <h2>See what I&apos;m up to.</h2>
           <a href="/private/prince_application_datalog">Blog</a>
         </section>
       </main>

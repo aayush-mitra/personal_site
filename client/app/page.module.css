@@ -3,6 +3,7 @@
   --muted: #8c8c8c;
   --soft: #bdbdbd;
   --line: rgba(255, 255, 255, 0.09);
+  --gray: #9f9f9f;
   min-height: 100vh;
   color: #ededed;
   background: #000;
@@ -16,6 +17,7 @@
   border-bottom: 1px solid var(--line);
   background: rgba(0, 0, 0, 0.86);
   backdrop-filter: blur(18px);
+
 }
 
 .nav,
@@ -32,28 +34,27 @@
 }
 
 .brand {
-  color: #f4f4f4;
-  font-size: 1.04rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
 }
 
 .navLinks {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 25px;
   color: var(--muted);
   font-weight: 400;
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   letter-spacing: 0.04em;
 }
 
 .navLinks a {
-  transition: color 160ms ease;
+  transition: color 0.25s ;
 }
 
 .navLinks a:hover {
-  color: #f4f4f4;
+  color: white;
 }
 
 .mainContainer {
@@ -64,6 +65,7 @@
   scroll-margin-top: 88px;
 }
 
+/* Reveal Animation */
 .reveal {
   opacity: 1;
   transform: translateY(0);
@@ -73,8 +75,8 @@
   opacity: 0;
   transform: translateY(18px);
   transition:
-    opacity 1500ms ease,
-    transform 1500ms ease;
+    opacity 1.5s,
+    transform 1.5s;
 }
 
 :global(.reveal-ready) [data-reveal]:global(.is-revealed) {
@@ -100,45 +102,46 @@
   margin-bottom: 12px;
   color: var(--muted);
   font-family: var(--font-geist-mono);
-  font-size: 0.86rem;
-  letter-spacing: 0.03em;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
 }
 
 .name {
-  margin-bottom: 14px;
-  color: #f5f5f5;
+  margin-bottom: 15px;
+  color: white;
   font-size: clamp(2.55rem, 4.25vw, 3.85rem);
   font-weight: 300;
-  line-height: 1.04;
+  line-height: 1.05;
 }
 
 .meta {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 7px;
   margin-bottom: 34px;
   color: var(--muted);
-  font-size: 0.94rem;
+  font-size: 0.9rem;
 }
 
 .meta p {
   display: grid;
-  grid-template-columns: 22px minmax(0, 1fr);
+  grid-template-columns: 20px minmax(0, 1fr);
   align-items: center;
   gap: 8px;
 }
 
 .metaIcon {
   display: inline-flex;
-  width: 22px;
+  width: 20px;
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-  line-height: 1;
+
 }
 
 .shortDescription {
   max-width: 760px;
-  color: #9f9f9f;
+  color: var(--gray);
   font-size: clamp(1rem, 1.42vw, 1.14rem);
   line-height: 1.58;
 }
@@ -153,13 +156,13 @@
   margin: 30px 0 32px;
   padding-left: 24px;
   border-left: 1px solid var(--accent);
-  color: #c7c7c7;
+  color: var(--gray);
   font-size: clamp(1.06rem, 1.62vw, 1.24rem);
   line-height: 1.7;
 }
 
 .quote em {
-  color: #f2f2f2;
+  color: white;
   font-family: Georgia, "Times New Roman", serif;
 }
 
@@ -184,7 +187,7 @@
   color: #f3f3f3;
 }
 
-.resumeLink {
+/* .resumeLink {
   display: inline-flex;
   align-items: center;
   min-height: 42px;
@@ -197,20 +200,20 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
+} */
 
 .socialIcon {
   display: inline-flex;
-  width: 39px;
-  height: 39px;
+  width: 40px;
+  height: 40px;
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.02);
   transition:
-    border-color 160ms ease,
-    background 160ms ease;
+    border-color 0.5s ,
+    background 0.5s ;
 }
 
 .socialIcon:hover,
@@ -230,12 +233,12 @@
   color: #cfcfcf;
   background: rgba(255, 255, 255, 0.02);
   font-family: var(--font-geist-mono);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   white-space: nowrap;
   transition:
-    border-color 160ms ease,
-    background 160ms ease,
-    color 160ms ease;
+    border-color 0.5s,
+    background 0.5s,
+    color 0.5s;
 }
 
 .emailLink img {
@@ -245,14 +248,13 @@
 .emailLink:hover,
 .emailLink:focus-visible {
   border-color: rgba(192, 108, 255, 0.55);
-  color: #f3f3f3;
-  background: rgba(192, 108, 255, 0.08);
+  color: white;
 }
 
-.resumeLink:hover {
+/* .resumeLink:hover {
   border-color: rgba(192, 108, 255, 0.7);
   background: rgba(192, 108, 255, 0.09);
-}
+} */
 
 .portraitFrame {
   display: flex;
@@ -266,38 +268,46 @@
   border: 2px solid rgba(128, 0, 128, 0.75);
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 0 72px -16px rgba(109, 36, 130, 0.9);
+  box-shadow: 0 0 100px -10px rgba(109, 36, 130, 0.9);
+}
+
+.hiImage:hover {
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 72px -10px #c06cffE6;
+  transition: 0.5s;
+  cursor: pointer;
 }
 
 .focusGrid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
-  gap: clamp(42px, 7vw, 82px);
-  padding: 94px 0 56px;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 0.95fr);
+  gap: clamp(40px, 7vw, 80px);
+  padding: 90px 0 65px;
 }
 
-.focusColumn + .focusColumn {
-  padding-left: clamp(24px, 3.5vw, 54px);
+.focusColumn:nth-child(2) {
+  padding-left: clamp(25px, 4vw, 55px);
   border-left: 1px solid var(--line);
 }
 
 .focusColumn h2,
 .skills h2 {
-  margin-bottom: 26px;
+  margin-bottom: 25px;
   color: #737373;
   font-family: var(--font-geist-mono);
-  font-size: 0.86rem;
+  font-size: 0.85rem;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 
 .agendaList {
-  display: grid;
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
   color: #b9b9b9;
-  font-size: 0.98rem;
-  line-height: 1.4;
+  padding-top: 7px;
+  line-height: 1.3;
   list-style: none;
 }
 
@@ -319,13 +329,20 @@
   gap: 16px;
   max-width: 460px;
   color: #878787;
-  font-size: 0.98rem;
+  font-size: 1rem;
   line-height: 1.45;
 }
 
 .courseList strong {
-  color: #d8d8d8;
+  color: #b9b9b9;
   font-weight: 500;
+}
+
+.courseList a:hover {
+
+  text-decoration: underline;
+  color: var(--soft);
+  transition: 0.5s;
 }
 
 .experiences {
@@ -357,23 +374,25 @@
 
 .experienceList {
   display: grid;
-  gap: 52px;
+  gap: 50px;
 }
 
 .experienceItem {
   position: relative;
-  padding-left: 36px;
+  padding-left: 35px;
   border-left: 1px solid;
   border-color: var(--accent);
 }
 
 .experienceLink {
-  text-decoration: underline;
+  
   color: var(--muted);
 }
 
 .experienceLink:hover {
   color: white;
+  text-decoration: underline;
+  transition: 0.5s;
 }
 
 .experienceItem:hover {
@@ -393,20 +412,17 @@
 .experienceItem h3 {
   margin-bottom: 10px;
   color: #e7e7e7;
-  font-size: clamp(1.12rem, 1.72vw, 1.42rem);
+  font-size: clamp(1.1rem, 1.7vw, 1.4rem);
   font-weight: 500;
-  line-height: 1.22;
+  line-height: 1.2;
 }
 
 .experienceMeta {
-  margin-bottom: 22px;
+  margin-bottom: 20px;
   color: #969696;
-  font-size: 0.98rem;
+  font-size: 1rem;
 }
 
-.experienceMeta span {
-  color: #5d5d5d;
-}
 
 .experienceMeta em {
   color: #7e7e7e;
@@ -416,8 +432,7 @@
 .experienceDescription {
   max-width: 820px;
   color: #929292;
-  font-size: 1rem;
-  line-height: 1.62;
+  line-height: 1.6;
 }
 
 .experienceDescription span {
@@ -430,7 +445,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 9px;
-  margin-top: 22px;
+  margin-top: 20px;
 }
 
 .experienceTags span,
@@ -438,14 +453,13 @@
 .endeavorTags span {
   display: inline-flex;
   align-items: center;
-  min-height: 31px;
+  min-height: 30px;
   padding: 0 11px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   color: #9d9d9d;
-  background: rgba(255, 255, 255, 0.035);
   font-family: var(--font-geist-mono);
-  font-size: 0.76rem;
+  font-size: 0.75rem;
 }
 
 .projects {
