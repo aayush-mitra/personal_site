@@ -20,7 +20,7 @@ const projects = [
     date: "March 2025",
     category: "Data Science/ML",
     description:
-      "Built a Physics-Informed Neural Network that predicts kinetics for enzyme-catalyzed reactions given subtrate names.",
+      "Built a Physics-Informed Neural Network that predicts kinetics for enzyme-catalyzed reactions given substrate names.",
     tags: ["Python", "PyTorch", "Numpy"],
     link: "disabled"
   },
@@ -29,7 +29,7 @@ const projects = [
     date: "January 2025",
     category: "Web",
     description:
-      "Full-Stack web app that functions as a \"journal\" for dreams. Leverges Gemini API to analyze and interpret dreams. Won Congressional App Challenge in TX-34.",
+      "Full-Stack web app that functions as a \"journal\" for dreams. Levereges Gemini API to analyze and interpret dreams. Won Congressional App Challenge in TX-34.",
     tags: ["Next", "Python", "Flask", "Gemini API", "MongoDB"],
     link: "https://www.congressionalappchallenge.us/24-tx34/"
   },
